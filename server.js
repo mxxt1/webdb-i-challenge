@@ -42,6 +42,37 @@ server.post('/', (req,res) => {
 })
 
 
+//delete account
+
+
+server.delete('/:id', (req, res) => {
+
+    db('accounts')
+    .where({id: req.params.id})
+    .del()
+    .then(response => {
+        res.status(200).json(response)
+    })
+    .catch(() => {
+        res.status(500).json({Error: `Failed to delete record`})
+    })
+})
+
+
+
+server.put('/:id', (req, res) => {
+
+    db('accounts')
+    .where({id: req.params.id})
+    .update(req.body)
+    .then(response => {
+        res.status(200).json(response)
+    })
+    .catch(() => {
+        res.status(500).json({Error: `There was an error updating this account`})
+    });
+});
+
 
 
 
