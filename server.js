@@ -59,7 +59,7 @@ server.delete('/:id', (req, res) => {
 })
 
 
-
+//Update account
 server.put('/:id', (req, res) => {
 
     db('accounts')
